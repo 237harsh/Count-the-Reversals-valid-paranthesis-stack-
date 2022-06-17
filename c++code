@@ -1,0 +1,46 @@
+int countRev (string s)
+{
+   int l=s.size();
+   int open=0;
+   int close=0;
+   if(l%2!=0)
+   return -1;
+   for(int i=0;i<l;i++)
+   {
+     //count total number of open paranthesis  
+      if(s[i]=='{'){
+      open++;
+      }
+      
+      
+     //if we got closing bracket then if we have opening bracket
+     //then reduce it by one simply cansel each oyher
+     //if openng bracket is =0 then increament close bracket number
+     if(s[i]=='}')
+     {
+         if(open>0)
+         open--;
+         else
+         close++;
+     }
+       
+       
+       
+   }
+  if(open>0)
+   {
+       if(open%2==0)
+       open=open/2;
+       else
+       open=open/2+1;
+       
+   }
+   if(close>0)
+   {
+       if(close%2==0)
+       close=close/2;
+       else
+       close=close/2+1;
+       
+   }
+   return close+open;
